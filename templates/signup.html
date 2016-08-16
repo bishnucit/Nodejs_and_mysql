@@ -1,4 +1,4 @@
-s<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -54,29 +54,26 @@ s<!DOCTYPE html>
               <nav>
                 <ul class="nav masthead-nav">
                   <li><a href="/">Home</a></li>
-                  <li class="active"><a href="/showSignInPage">SignIn</a></li>
-                  <li><a href="#">SignUp</a></li>
+                  <li><a href="/showSignInPage">SignIn</a></li>
+                  <li class="active"><a href="/showSignUpPage">SignUp</a></li>
                 </ul>
               </nav>
             </div>
           </div>
 
-           <div class="inner cover">
-              <form action="/myaction" method="post">
 
-                      <label for="email">Email:</label>
-                      <input type="email" id="email" name="email" placeholder="Enter your email address" />
-                  <br><br>
-                      <label for="pass">Password:</label>
-                      <input type="password" id="pass" name="pass" placeholder="Enter your password" />
-                      <br>
-                      <br>
-                      <input type="submit" value="Send message" />
+          <div class="inner cover">
+              <form class="form-signin"  action="/myaction" method="post">
+                <h2 class="email">Please sign up</h2>
+                <label for="email" class="sr-only">Your Email address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required="" autofocus="">
+                <label for="pass" class="sr-only">New Password</label>
+                <input type="password" id="pass" class="form-control" name="pass" placeholder="Password" required="">
+                
+                <button id="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
               </form>
-</div>
           </div>
 
-         
 
           <div class="mastfoot">
             <div class="inner">
