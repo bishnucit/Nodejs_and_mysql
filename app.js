@@ -41,7 +41,9 @@ app.get('/',function(req,res){
 app.get('/showSignInPage',function(req,res){
     res.sendFile('signin.html',{'root': __dirname + '/templates'});
 });
-
+app.get('/showSignInPageretry',function(req,res){
+    res.sendFile('signinretry.html',{'root': __dirname + '/templates'});
+});
 app.get('/showSignUpPage',function(req,res){
   res.sendFile('signup.html',{'root':__dirname + '/templates'})
 });
@@ -49,6 +51,11 @@ app.get('/showSignUpPage',function(req,res){
 app.get('/message',function(req,res){
     res.sendFile('message.html',{'root': __dirname + '/templates'});
 });
+
+app.get('/loggedin',function(req,res){
+    res.sendFile('loggedin.html',{'root': __dirname + '/templates'});
+});
+
 
 app.post('/myaction', function(req, res) {
 	console.log('req.body');
@@ -66,4 +73,30 @@ app.post('/myaction', function(req, res) {
 	//connection.end();
 
 	res.end();
+});
+
+
+app.post('/verifyuser', function(req,res){
+	console.log('checking user in database');
+	console.log(req.body.pass);
+	var selectString = 'SELECT COUNT(email) FROM mytable1 WHERE email="'+req.body.email+'" AND pass="'+req.body.pass+'" ';
+	 
+	connection.query(selectString, function(err, results) {
+		
+        console.log(results);
+        var string=JSON.stringify(results);
+        console.log(string);
+        //this is a walkaround of checking if the email pass combination is 1 or not it will fail if wrong pass is given
+        if (string === '[{"COUNT(email)":1}]') {
+			res.redirect('/loggedin');
+	
+	        }
+        if (string === '[{"COUNT(email)":0}]')  {
+        	res.redirect('/showSignInPageretry');
+        	
+        }
+});
+
+
+
 });
