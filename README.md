@@ -29,7 +29,9 @@ node app.js
 
 Enjoy!
 
-Will be adding the Sign IN feature soon.
+SIGN IN SIGN UP Implementation working condition.
+SIGN UP- adds username and pass to existing database
+SIGN IN - verifies given username and pass from existing database
 
 
 Thanks, 
