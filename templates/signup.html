@@ -17,26 +17,7 @@
     <!-- Custom styles for this template -->
     <link href="../style/cover.css" rel="stylesheet">
     <link href="../style/signin.css" rel="stylesheet">
-    <script type="text/javascript" src="../script/jquery-1.11.2.js"></script>
-
-    <script type="text/javascript">
-      $(function(){
-        $('#btnSignIn').click(function(evt){
-          evt.preventDefault();
-          $.ajax({
-            url: '/signin',
-            type:'POST',
-            success:function(response){
-              console.log(response);
-            },
-            error:function(error){
-              console.log(error);
-            }
-          })
-        })
-      })
-     
-    </script>
+  
 
   </head>
 
